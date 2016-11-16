@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-sm-3"><p >{{ greeting }}<span style="font-size:small;padding-left:10px;"><i>Librarian</i></span></p></div>
+
+            <div class="col-sm-5" style="margin-bottom:25px;">
+
+            <form class="form-inline" action="{% url 'books:librarian' %}" method="POST">
+            {% csrf_token %}
+                <div class="form-group">
+                  <label for="bid" >Edit/Delete :</label>
+                  <input style="width:150px;" type="number" class="form-control" id="bid" placeholder="Enter Book ID" name="bid" required="True">
+                </div>
+                <button type="submit" name="action" value="edit" class="btn btn-default" style="background-color:#383838">Edit</button>
+                <button type="submit" name="action" value="delete" class="btn btn-default" style="background-color:#383838">Delete</button>
+
+            </form><br/>
+            <p style="font-size:small;color:red;">{{ message }}</p>
+            </div>
+
+            <div class="col-sm-2"><a href="{% url 'books:add_book' %}" class="btn btn-info" role="button" style="background-color:#383838;margin:10px;height:50px;width:150px;">Add Book</a></div>
+            <div class="col-sm-2"><a href="{% url 'books:index' %}" class="btn btn-info" role="button" style="background-color:#383838;margin:10px;height:50px;width:150px;">Logout</a></div>
+        </div>
+        <div class="container-fluid">
+            {% render_table table %}
+        </div>
+{% endblock %}

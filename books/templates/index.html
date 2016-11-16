@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        {% block message %}<pre><p style="color:black;text-align:center">Welcome to Library Application Portal</p></pre>{% endblock %}
+        <div class="row">
+            <div class="col-sm-6">
+                <h3 style="text-align:center;">Customer:</h3>
+                <div class="row" style="padding-top:20px;">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+
+                        <a href="{% url 'books:login2' %}" class="btn btn-info" role="button" style="background-color:#383838;margin:10px;height:50px;width:150px;">Sign  In</a><br>
+                        <a href="{% url 'books:register2' %}" class="btn btn-info" role="button" style="background-color:#383838;margin:10px;height:50px;width:150px;">Register</a><br>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <h3 style="text-align:center;">Librarian:</h3>
+                <div class="row" style="padding-top:20px;">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+
+                        <a href="{% url 'books:login1' %}" class="btn btn-info" role="button" style="background-color:#383838;margin:10px;height:50px;width:150px;">Sign  In</a><br>
+                        <a href="{% url 'books:register1' %}" class="btn btn-info" role="button" style="background-color:#383838;margin:10px;height:50px;width:150px;">Register</a><br>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+<!--div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">More... <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Add News</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div-->

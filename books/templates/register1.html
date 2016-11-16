@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3> Librarian Registration </h3>
+    <form action="{% url 'books:register1' %}" method="post">
+    {% csrf_token %}
+        <table border="0">
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

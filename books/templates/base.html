@@ -1,0 +1,70 @@
+    {% load staticfiles %}
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        {% block heads %}
+        {% endblock %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/sidebar-menu.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'django_tables2/themes/paleblue/css/screen.css' %}">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../static/ckeditor/ckeditor.js"></script>
+
+        <style>
+        h1 { position:absolute; top:50px; left:250px;}
+        .jquery-script-ads { position:absolute; top:250px; left:250px;}
+        </style>
+    </head>
+
+    <body>
+
+    <div class="row"  >
+
+      <div class="col-sm-12"><pre>
+        <h3 style="background-color:#383838 ;text-align:center;color:white;padding:10px;">Library  Application  Portal <a href="{% url 'books:index' %}" class="btn btn-info" role="button" style="background-color:#383838;height:38px;width:200px;float:right;margin-bottom:15px;border:0px;">Home</a></h3></pre>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+
+
+        <script src = "{% static 'js/jquery.min.js' %}"></script>
+        <script src = "{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script src="{% static 'js/sidebar-menu.js' %}"></script>
+        {% block javascript %}
+        {% endblock %}
+  <script>
+    $.sidebarMenu($('.sidebar-menu'))
+  </script>
+    </body>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36251023-1']);
+      _gaq.push(['_setDomainName', 'jqueryscript.net']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    </html>

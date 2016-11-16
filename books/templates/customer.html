@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-sm-3"><p>{{ greeting }}<span style="font-size:small;padding-left:10px;"><i>Customer</i></span></p></div>
+
+
+            <div class="col-sm-4" style="margin-bottom:60px;">
+            <form class="form-inline" action="{% url 'books:customer' %}" method="POST">
+            {% csrf_token %}
+                <div class="form-group">
+                  <label for="bid">Request :</label>
+                  <input type="number" class="form-control" id="bid" placeholder="Enter Book ID" name="bid" required="True" style="width:150px;"  >
+                </div>
+                <button type="submit" class="btn btn-default" style="background-color:#383838">Submit</button>
+            </form>
+            </div>
+            <div class="col-sm-3" style="font-size:small;color:red;">{{message}}</div>
+            <div class="col-sm-2"><a href="{% url 'books:index' %}" class="btn btn-info" role="button" style="background-color:#383838;margin:10px;height:50px;width:150px;float:right;">Logout</a></div>
+        </div>
+        <div class="row">
+                <div class="col-sm-9">
+                        {% render_table table %}
+                </div>
+
+                <div class="col-sm-3" >
+                {% if issued %}
+                <p style="font-size:medium;">You have book issued</p>
+                    <div class="card card-block" style="border-style: solid;border-width: 2px;padding:5px;">
+                        <h4 class="card-title">{{issued.title}}</h4>
+                        <p class="card-text" style="font-size:medium;">Author: {{ issued.author }}</p>
+                        <a href="{% url 'books:return' %}" class="card-link" >Return</a>
+                    </div>
+
+                {% else %}
+                    <p >No Book Issued</p>
+                {% endif %}
+
+                </div>
+
+        </div>
+{% endblock %}
